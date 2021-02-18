@@ -38,7 +38,7 @@ if mode == nil then
     return 1
 end
 
-if not contains(mode) then
+if not contains(modes, mode) then
     print("Unknown mode selected")
     listModes()
     return 2
