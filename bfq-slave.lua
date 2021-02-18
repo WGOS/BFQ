@@ -1,7 +1,7 @@
 local function listen()
     while true do
         local senderId, message = rednet.receive("bfq-slave")
-        shell.run("pastebin run rpXRAZs4 " .. message)
+        shell.run("wget run https://raw.githubusercontent.com/WGOS/BFQ/master/quarry.lua " .. message)
     end
 end
 
