@@ -1,0 +1,3 @@
+local command = ...
+
+rednet.broadcast("bfq-slave", command)
