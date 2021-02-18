@@ -46,7 +46,7 @@ local function addStartup()
     print("Adding slave mode file to startup")
     fs.delete("/startup")
     local file = fs.open("/startup", "w")
-    file.writeLine("wget run https://raw.githubusercontent.com/WGOS/BFQ/master/bfq-launcher.lua slave " .. args[2])
+    file.writeLine("shell.run(\"wget run https://raw.githubusercontent.com/WGOS/BFQ/master/bfq-launcher.lua slave " .. args[2] .. "\")")
     file.close()
 end
 
