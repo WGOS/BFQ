@@ -34,7 +34,7 @@ end
 local function runSlave()
     print("Running in slave mode")
 
-    if args[3] == nil then
+    if args[2] == nil then
         print("No channel provided")
         return 4
     end
