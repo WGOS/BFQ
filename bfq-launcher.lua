@@ -16,7 +16,7 @@ end
 
 local function runMaster()
     print("Running in master mode")
-    shell.run("wget run https://raw.githubusercontent.com/WGOS/BFQ/master/bfq-master.lua " .. command)
+    shell.run("wget run https://raw.githubusercontent.com/WGOS/BFQ/master/bfq-master.lua \"" .. command .. "\"")
 end
 
 local function runSlave()
