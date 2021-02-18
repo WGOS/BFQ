@@ -44,6 +44,12 @@ end
 
 local function addStartup()
     print("Adding slave mode file to startup")
+
+    if args[2] == nil then
+        print("No channel provided")
+        return 4
+    end
+
     fs.delete("/startup")
     local file = fs.open("/startup", "w")
     file.writeLine("shell.run(\"wget run https://raw.githubusercontent.com/WGOS/BFQ/master/bfq-launcher.lua slave " .. args[2] .. "\")")
@@ -73,11 +79,13 @@ local modemSide = getModemSide();
 rednet.open(modemSide)
 
 if mode == "master" then
-    return runMaster()
+    retCode = runMaster()
 elseif mode == "slave" then
-    return runSlave()
+    retCode = runSlave()
 elseif mode == "slave-start" then
-    return addStartup()
+    retCode = addStartup()
 end
 
 rednet.close(modemSide)
+
+return retCode
