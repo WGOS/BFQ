@@ -44,10 +44,13 @@ if not contains(modes, mode) then
     return 2
 end
 
-rednet.open(getModemSide())
+local modemSide = getModemSide();
+rednet.open(modemSide)
 
 if mode == "master" then
     runMaster()
 elseif mode == "slave" then
     runSlave()
 end
+
+rednet.close(modemSide)
